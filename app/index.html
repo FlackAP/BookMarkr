@@ -26,14 +26,28 @@
 
             <ul id="baraja-el" class="baraja-container">
                 <li>
-                    <h2>AVAILABLE</h2>
-                    <p>cool a book!!!!!</p>
+                    <h2 class="status">Available</h2>
+
+                    <script type="text/template"  id="item-template">
+                        <div class="view">
+                         
+                        </div>
+                    </script>
+
                     <div class="toggle">TOGGLE</div>
                 </li>
+
                 <li>
-                    <h2>CHECKED OUT</h2>
-                    <p>books are gone!!</p>
+                    <h2 class="status">Checked Out</h2>
+
+                    <script type="text/template"  id="item-template">
+                        <div class="view">
+                         
+                        </div>
+                    </script>
+
                     <div class="toggle">TOGGLE</div>
+
                  </li>
             </ul>
             
@@ -59,6 +73,7 @@
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/parse.js"></script>
         <!-- endbuild -->
 </body>
 </html>
