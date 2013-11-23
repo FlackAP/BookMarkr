@@ -38,8 +38,23 @@ body {
     padding: 0.2em 0;
 }
 
+/*TABLE STYLINGS*/
+table {
+    width:100%;   
+}
+th, td {
+    min-width:60px;
+}
+tr:nth-child(even) {
+  background-color: red;
+}
 
-/*SHUFFLE EFFECT*/
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+/*SHUFFLE STYLINGS*/
 
 ul.baraja-container {
     width:97%;
