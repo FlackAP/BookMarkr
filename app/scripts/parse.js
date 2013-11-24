@@ -46,17 +46,39 @@
 	unavailableCollection.fetch({
 	  success: function(collection) {
 	  	console.log('successful fetch')
-	    collection.each(function(object) {
-	      console.log(object);
+	  	console.log(collection)
+	    collection.each(function(result) {
+		  	console.log('result',result)
+	      	new unavailableView(result)
 	    });
 	  }
 	})
 
 	var availableView = Parse.View.extend({
-		
+		availableTemplate: _.template($('#Available').text()),
+		initialize: function() {
+			$("#Available").append(this.el)
+			this.render()
+			console.log('initialized available')
+		},
+		render: function() {
+			console.log('fetched')
+			this.$el.append(this.availableTemplate({book: this.model}))
+		}
 	})
 
 	var unavailableView = Parse.View.extend({
+  		unavailableTemplate: _.template($('#Unavailable').text()),
+		initialize: function() {
+			$("#Unavailable").append(this.el)
+			this.render()
+			console.log('initialized unavailable')
 
+		},
+  		render: function() {
+  			console.log('fetched')
+    		this.$el.append(this.unavailableTemplate({book: this.model}));
+  		}
 	})
+
 	

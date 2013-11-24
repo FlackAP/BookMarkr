@@ -32,16 +32,16 @@
                         <tr>
                             <th>Title</th>
                             <th>Author</th>
-                            <th>Checked Out By:</th>
+                            <th>Genre/Subject</th>
                             <th></th>
                         </tr>
 
                         <script type="text/template"  id="Available">
                             <tr>
-                                    <td><%= key=></td>
-                                    <td><%= key=></td>
-                                    <td><%= key=></td>
-                                    <td><div class="check-in"></div></td>
+                                    <td><%= book.get('title')=></td>
+                                    <td><%= book.get('author')=></td>
+                                    <td><%= book.get('subject')=></td>
+                                    <td><div class="check-out">Check Out</div></td>
                                 </tr>
                         </script>
 
@@ -61,12 +61,12 @@
                             <th></th>
                         </tr>
 
-                        <script type="text/template"  id="Checked-Out">
+                        <script type="text/template"  id="Unavailable">
                             <tr>
-                                <td><%= key=></td>
-                                <td><%= key=></td>
-                                <td><%= key=></td>
-                                <td><div class="check-in"></div></td>
+                                <td><%= book.get("title")=></td>
+                                <td><%= book.get("author"=></td>
+                                <td><%= book.get('user')=></td>
+                                <td><div class="check-in">Check In</div></td>
                             </tr>
                         </script>
 
