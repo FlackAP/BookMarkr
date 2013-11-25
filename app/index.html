@@ -36,14 +36,6 @@
                             <th></th>
                         </tr>
 
-                        <script type="text/template"  id="Available">
-                            <tr>
-                                    <td><%= book.get('title')=></td>
-                                    <td><%= book.get('author')=></td>
-                                    <td><%= book.get('subject')=></td>
-                                    <td><div class="check-out">Check Out</div></td>
-                                </tr>
-                        </script>
 
                     </table>    
 
@@ -61,14 +53,6 @@
                             <th></th>
                         </tr>
 
-                        <script type="text/template"  id="Unavailable">
-                            <tr>
-                                <td><%= book.get("title")=></td>
-                                <td><%= book.get("author"=></td>
-                                <td><%= book.get('user')=></td>
-                                <td><div class="check-in">Check In</div></td>
-                            </tr>
-                        </script>
 
                     </table>
 
@@ -79,7 +63,22 @@
             
         </div>
 
-
+        <script type="text/template"  id="available">
+            
+                    <td><%= result.get('title')%></td>
+                    <td><%= result.get('author')%></td>
+                    <td><%= result.get('subject')%></td>
+                    <td><div class="check-out">Check Out</div></td>
+              
+        </script>
+        <script type="text/template"  id="unavailable">
+            
+                <td><%= result.get('title')%></td>
+                <td><%= result.get('author')%></td>
+                <td><%= result.get('user')%></td>
+                <td><div class="check-in">Check In</div></td>
+        
+        </script>
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
