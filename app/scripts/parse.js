@@ -25,8 +25,10 @@
 	availableCollection.fetch({
 	  success: function(collection) {
 	  	console.log('successful fetch')
-	    collection.each(function(object) {
-	      console.log(object);
+	    console.log(collection)
+	    collection.each(function(result) {
+		  	console.log('result',result)
+	      	new availableView(result)
 	    });
 	  }
 	})
@@ -55,29 +57,29 @@
 	})
 
 	var availableView = Parse.View.extend({
-		availableTemplate: _.template($('#Available').text()),
+		availableTemplate: _.template($('#Available').html()),
 		initialize: function() {
-			$("#Available").append(this.el)
+			$("#available-view").append(this.el)
 			this.render()
 			console.log('initialized available')
 		},
 		render: function() {
 			console.log('fetched')
-			this.$el.append(this.availableTemplate({book: this.model}))
+			this.$el.html(this.availableTemplate)
 		}
 	})
 
 	var unavailableView = Parse.View.extend({
-  		unavailableTemplate: _.template($('#Unavailable').text()),
+  		unavailableTemplate: _.template($('#Unavailable').html()),
 		initialize: function() {
-			$("#Unavailable").append(this.el)
+			$("#unavailable-view").append(this.el)
 			this.render()
 			console.log('initialized unavailable')
 
 		},
   		render: function() {
   			console.log('fetched')
-    		this.$el.append(this.unavailableTemplate({book: this.model}));
+    		this.$el.append(this.unavailableTemplate);
   		}
 	})
 
