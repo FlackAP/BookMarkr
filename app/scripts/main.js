@@ -1,3 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+
+// SHUFFLE FUNCTIONALITY
+
 /**
  * jquery.baraja.js v1.0.0
  * http://www.codrops.com
