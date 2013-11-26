@@ -27,8 +27,9 @@
             <ul id="baraja-el" class="baraja-container">
                 <li>
                     <h2 class="status">Available</h2>
-
-                    <table id="available-view" border="1">
+                    <div class="toggle">View Checked-Out Books</div>
+                    <div class="overflow">
+                        <table id="available-view" border:"collapse">
                         <tr>
                             <th>Title</th>
                             <th>Author</th>
@@ -37,46 +38,50 @@
                         </tr>
 
 
-                    </table>    
-
-                    <div class="toggle">View Checked-Out Books</div>
+                         </table>    
+                    </div>
+                    
                 </li>
 
                 <li>
                     <h2 class="status">Checked Out</h2>
-
-                    <table id="unavailable-view" border="1">
+                    <div class="toggle">View Available Books</div>
+                    <div class="overflow">
+                    <table id="unavailable-view" >
                         <tr>
                             <th>Title</th>
                             <th>Author</th>
-                            <th>Checked Out By:</th>
+                            <th class="user-th">Checked Out By:</th>
                             <th></th>
                         </tr>
 
 
                     </table>
+                    </div>
 
-                    <div class="toggle">View Available Books</div>
+                    
 
                  </li>
             </ul>
             
         </div>
 
+        <!--Templates for Available and Unavailable Tables-->
+
         <script type="text/template"  id="available">
             
                     <td><%= result.get('title')%></td>
                     <td><%= result.get('author')%></td>
                     <td><%= result.get('subject')%></td>
-                    <td><div class="check-out">Check Out</div></td>
+                    <td class="button-td"><div class="check-out">Check Out</div></td>
               
         </script>
         <script type="text/template"  id="unavailable">
             
                 <td><%= result.get('title')%></td>
                 <td><%= result.get('author')%></td>
-                <td><%= result.get('user')%></td>
-                <td><div class="check-in">Check In</div></td>
+                <td class="user-td"><a href="mailto:<%= result.get('user')%>"><%= result.get('user')%></a></td>
+                <td class="button-td"><div class="check-in">Check In</div></td>
         
         </script>
         <!-- build:js scripts/vendor.js -->

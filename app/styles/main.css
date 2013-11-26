@@ -39,28 +39,80 @@ body {
     padding: 0.2em 0;
 }
 
+
 /*TABLE STYLINGS*/
-table {
-    width:100%;   
+.overflow {
+    overflow: scroll;
+    height:180px;
 }
+
+
+table {
+    width:90%;
+    border-spacing:0px;   
+    margin:0 auto;
+    table-layout:fixed;
+    overflow:hidden; 
+}
+
+
 th, td {
     min-width:60px;
 }
-tr:nth-child(even) {
-  background-color: red;
-}
 
+tr:nth-child(even) {
+  background-color: #ddd;
+}
 
 tr:nth-child(odd) {
   background-color: white;
 }
+
+.user-th {
+    max-width:90px;
+}
+
+.user-td {
+    overflow:scroll;
+}
+
+.button-td {
+    margin:0;
+    text-align:center;
+}
+
+.check-out, .check-in {
+    background-color: #77b55a;
+    border-radius: 8px;
+    border: 1px solid #4b8f29;
+    display: inline-block;
+    color: #ffffff;
+    margin: 10px auto;
+    max-width: 80px;
+    font-family: arial;
+    text-align: center;
+    font-size: 17px;
+    padding: 0 4px;
+    text-decoration: none;
+    text-shadow: 0px 1px 11px #5b8a3c;
+}
+.check-out:hover, .check-in:hover {
+    background-color:#72b352;
+}
+
+.check-out:active, .check-in:active {
+    position:relative;
+    top:1px;
+}
+
+
 
 /*SHUFFLE STYLINGS*/
 
 ul.baraja-container {
     width:97%;
     max-width: 700px;
-    height: 310px;
+    min-height:400px;
     margin: 0 auto 30px;
     position: relative;
     padding: 0;
@@ -99,9 +151,11 @@ ul.baraja-container li {
 }
 
 .toggle {
-    vertical-align: bottom;
-    position:absolute;
-    bottom:0;
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+    margin-bottom: 20px;
+
 }
 
 /* 
@@ -119,16 +173,15 @@ only screen and (max-width: 760px),
     }
     
     /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr { 
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
+    th { 
+        display:none;
     }
     
     tr { border: 1px solid #ccc; }
     
     td { 
         /* Behave  like a "row" */
+        font-size: 14px;
         border: none;
         border-bottom: 1px solid #eee; 
         position: relative;

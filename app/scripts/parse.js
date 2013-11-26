@@ -46,6 +46,10 @@
 
 		template: _.template($('#available').text()),
 
+		events: {
+			"click .check-out" : "checkout"
+		},
+
 		initialize: function() {
 			$("#available-view").append(this.el)
 			console.log('initialized available')
@@ -54,6 +58,11 @@
 		render: function() {
 			console.log('fetched available')
 			this.$el.append(this.template({result:this.model}))
+		},
+
+		checkout: function() {
+			console.log(' checking out ' + this.model.get('title'))
+
 		}
 	})
 
