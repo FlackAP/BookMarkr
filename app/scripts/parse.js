@@ -4,7 +4,7 @@
 
 	var Book = Parse.Object.extend("Books", {
 		defaults: {
-			user: "n/a"
+			"user": "n/a"
 		},
 
 		initialize: function(){
@@ -62,8 +62,9 @@
 
 		checkout: function() {
 			console.log(' checking out ' + this.model.get('title'))
-
+			new checkoutView({model:Book})
 		}
+
 	})
 
 	var unavailableView = Parse.View.extend({
@@ -80,6 +81,16 @@
   			console.log('fetched unavailable')
     		this.$el.append(this.template({result: this.model}))
   		}
+	})
+
+	var checkoutView = Parse.View.extend({
+		initialize: function (result) {
+			console.log('cool you\'re checkin\' something out')
+		},
+
+		render: function() {
+
+		}
 	})
 
 	unavailableCollection.fetch({
