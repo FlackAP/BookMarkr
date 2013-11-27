@@ -16,12 +16,12 @@
 	var AvailableCollection = Parse.Collection.extend({
   		model: Book,
   		query: (new Parse.Query(Book)).equalTo("available", true),
-  		initialize: function() {
-			console.log('cool new available collection')
-			this.on('add', function(item){
-				new availableView( {model: Book})
-			})
-		}
+  // 		initialize: function() {
+		// 	console.log('cool new available collection')
+		// 	this.on('add', function(item){
+		// 		new availableView( {model: item})
+		// 	})
+		// }
 	});
 	var availableCollection = new AvailableCollection();
 
@@ -29,13 +29,14 @@
 	var UnavailableCollection = Parse.Collection.extend({
   		model: Book,
   		query: (new Parse.Query(Book)).equalTo("available", false),
-  		initialize: function() {
-			console.log('cool new unavailable collection')
-			this.on('add', function(item){
-				new unavailableView( {model: Book})
+  // 		initialize: function() {
+		// 	console.log('cool new unavailable collection')
+		// 	this.on('add', function(item){
+		// 		console.log("Book is" +Book )
+		// 		new unavailableView( {model: item})
 
-			})
-		}
+		// 	})
+		// }
 	});
 	var unavailableCollection = new UnavailableCollection();
 
@@ -62,7 +63,8 @@
 
 		checkout: function() {
 			console.log(' checking out ' + this.model.get('title'))
-			new checkoutView({model:Book})
+			console.log()
+			new checkoutView({model: this.model})
 		}
 
 	})
@@ -73,22 +75,39 @@
   		template: _.template($('#unavailable').text()),
 
 		initialize: function() {
+			this.remove()
 			$("#unavailable-view").append(this.el)
 			console.log('initialized unavailable')
 			this.render()
 		},
   		render: function() {
+  			this.remove()
   			console.log('fetched unavailable')
     		this.$el.append(this.template({result: this.model}))
   		}
 	})
 
 	var checkoutView = Parse.View.extend({
-		initialize: function (result) {
-			console.log('cool you\'re checkin\' something out')
+
+		events: {
+			"click .save": "saveNewUser"
+		},
+
+		template: _.template($('#checkout-modal').text()),
+
+		initialize: function () {
+			$('.modal').append(this.el)
+			console.log('cool you\'re checkin\' '+  this.model.get('title') +" out")
+			this.render()
 		},
 
 		render: function() {
+			$('.modal').addClass('active')
+			console.log('rendering checkout for'+  this.model.get('title'))
+			this.$el.append(this.template({result: this.model}))
+		},
+
+		saveNewUser: function(){
 
 		}
 	})

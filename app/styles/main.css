@@ -158,6 +158,41 @@ ul.baraja-container li {
 
 }
 
+/*Checkout Modal*/
+
+.modal {
+    width: 400px;
+    display:none;
+    position: absolute;
+    top: 84%;
+    z-index: 9999999;
+    left: 50%;
+    margin: -200px;
+    text-align: center;
+    height: 197px;
+    background: rgb(209, 204, 204);
+}
+
+.active {
+    display:block;
+}
+
+ input {
+    border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+}
+
 /* 
 Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px

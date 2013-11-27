@@ -66,6 +66,10 @@
             
         </div>
 
+        <div class="modal">
+
+        </div>
+
         <!--Templates for Available and Unavailable Tables-->
 
         <script type="text/template"  id="available">
@@ -83,6 +87,13 @@
                 <td class="user-td"><a href="mailto:<%= result.get('user')%>"><%= result.get('user')%></a></td>
                 <td class="button-td"><div class="check-in">Check In</div></td>
         
+        </script>
+
+        <script type="text/template" id="checkout-modal">
+            <div>
+                <h2>Check-Out <%= result.get('title')%></h1>
+               <input placeholder="Name"></input>
+            </div>
         </script>
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->

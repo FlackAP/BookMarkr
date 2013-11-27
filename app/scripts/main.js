@@ -1,4 +1,9 @@
 
+$('.check-out').click(function(){
+	console.log('great job')
+
+});
+
 
 
 
