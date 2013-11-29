@@ -75,13 +75,11 @@
   		template: _.template($('#unavailable').text()),
 
 		initialize: function() {
-			this.remove()
 			$("#unavailable-view").append(this.el)
 			console.log('initialized unavailable')
 			this.render()
 		},
   		render: function() {
-  			this.remove()
   			console.log('fetched unavailable')
     		this.$el.append(this.template({result: this.model}))
   		}
@@ -96,6 +94,7 @@
 		template: _.template($('#checkout-modal').text()),
 
 		initialize: function () {
+			$('.modal').html('')
 			$('.modal').append(this.el)
 			console.log('cool you\'re checkin\' '+  this.model.get('title') +" out")
 			this.render()
@@ -108,7 +107,7 @@
 		},
 
 		saveNewUser: function(){
-
+			
 		}
 	})
 
