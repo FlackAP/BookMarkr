@@ -72,6 +72,10 @@
 	var unavailableView = Parse.View.extend({
   		tagName: 'tr',
 
+  		events: {
+  			"click .check-in": "checkIn"
+  		},
+
   		template: _.template($('#unavailable').text()),
 
 		initialize: function() {
@@ -82,13 +86,18 @@
   		render: function() {
   			console.log('fetched unavailable')
     		this.$el.append(this.template({result: this.model}))
+  		},
+
+  		checkIn: function() {
+  			this.model.save({available: true})
+
   		}
 	})
 
 	var checkoutView = Parse.View.extend({
 
 		events: {
-			"click .save": "saveNewUser"
+			"click .confirm": "saveNewUser"
 		},
 
 		template: _.template($('#checkout-modal').text()),
@@ -107,7 +116,10 @@
 		},
 
 		saveNewUser: function(){
-			
+			console.log(this.model)
+      		this.model.save({user: $('.user-input').val()});
+      		this.model.save({available: false})
+      		$('.modal').remove()
 		}
 	})
 
