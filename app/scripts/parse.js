@@ -53,6 +53,7 @@
 
 		initialize: function() {
 			$("#available-view").append(this.el)
+			 this.on('add', this.render, this);
 			console.log('initialized available')
 			this.render()
 		},
@@ -80,6 +81,7 @@
 
 		initialize: function() {
 			$("#unavailable-view").append(this.el)
+			this.on('add', this.render, this);
 			console.log('initialized unavailable')
 			this.render()
 		},
@@ -91,6 +93,7 @@
   		checkIn: function() {
   			this.model.save({available: true})
   			this.model.save({user: 'none'})
+  			$('.toggle').click()
   		}
 	})
 
@@ -120,6 +123,7 @@
       		this.model.save({user: $('.user-input').val()});
       		this.model.save({available: false})
       		$('.modal').remove()
+      		$('.toggle').click()
 		}
 	})
 
