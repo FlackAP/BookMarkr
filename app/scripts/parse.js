@@ -90,7 +90,7 @@
 
   		checkIn: function() {
   			this.model.save({available: true})
-
+  			this.model.save({user: 'none'})
   		}
 	})
 
@@ -123,7 +123,7 @@
 		}
 	})
 
-	unavailableCollection.fetch({
+		unavailableCollection.fetch({
 	  success: function(collection) {
 	  	console.log('successful fetch')
 	  	console.log(collection)
@@ -144,4 +144,5 @@
 	    })
 	  }
 	})
+
 	
