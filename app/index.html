@@ -13,7 +13,7 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
-        <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+        <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 10]>
@@ -30,13 +30,15 @@
                     <div class="toggle">View Checked-Out Books</div>
                     <div class="overflow">
                         <table id="available-view" border:"collapse">
-                        <tr>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Genre/Subject</th>
-                            <th></th>
-                        </tr>
-
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Genre/Subject</th>
+                                <th></th>
+                            </tr>
+                        </thead>    
+                        <tbody id="js-available-tbody"></tbody>
 
                          </table>    
                     </div>
@@ -48,13 +50,15 @@
                     <div class="toggle">View Available Books</div>
                     <div class="overflow">
                     <table id="unavailable-view" >
-                        <tr>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th class="user-th">Checked Out By:</th>
-                            <th></th>
-                        </tr>
-
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th class="user-th">Checked Out By:</th>
+                                <th></th>
+                            </tr>
+                        </thead>    
+                        <tbody id="js-unavailable-tbody"></tbody>
 
                     </table>
                     </div>
