@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,800);
 
 body {
-    background: #fafafa;
+    background: #B3FFF3;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: #333;
 }
@@ -113,7 +113,7 @@ tr:nth-child(odd) {
 ul.baraja-container {
     width:97%;
     max-width: 700px;
-    min-height:400px;
+    min-height:320px;
     margin: 0 auto 30px;
     position: relative;
     padding: 0;
@@ -127,7 +127,7 @@ ul.baraja-container li {
     position: absolute;
     top: 0;
     left: 0;
-    background: #F1F3DE;
+    background: #B3FFF3;;
     pointer-events: auto;
     box-shadow: 1px 2px 4px rgb(202, 202, 202);
     -webkit-backface-visibility: hidden;
@@ -269,5 +269,9 @@ only screen and (max-width: 760px),
     #available-view td:nth-of-type(1):before { content: "Title"; }
     #available-view td:nth-of-type(2):before { content: "Author"; }
     #available-view td:nth-of-type(3):before { content: "Genre/Subject"; }
+
+    #unavailable-view td:nth-of-type(1):before { content: "Title"; }
+    #unavailable-view td:nth-of-type(2):before { content: "Author"; }
+    #unavailable-view td:nth-of-type(3):before { content: "User"; }
 
 }

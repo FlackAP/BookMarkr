@@ -81,7 +81,6 @@
 
 		initialize: function() {
 			$("#unavailable-view").append(this.el)
-			this.on('add', this.render, this);
 			console.log('initialized unavailable')
 			this.render()
 		},
