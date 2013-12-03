@@ -53,7 +53,6 @@
 
 		initialize: function() {
 			$("#available-view").append(this.el)
-			 this.on('add', this.render, this);
 			console.log('initialized available')
 			this.render()
 		},
@@ -81,7 +80,6 @@
 
 		initialize: function() {
 			$("#unavailable-view").append(this.el)
-			this.on('add', this.render, this);
 			console.log('initialized unavailable')
 			this.render()
 		},
@@ -106,7 +104,7 @@
 		template: _.template($('#checkout-modal').text()),
 
 		initialize: function () {
-			$('.modal').removeClass('active')
+			$('.modal').html('')
 			$('.modal').append(this.el)
 			console.log('cool you\'re checkin\' '+  this.model.get('title') +" out")
 			this.render()
