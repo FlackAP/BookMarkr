@@ -40,16 +40,6 @@
 	});
 	var unavailableCollection = new UnavailableCollection();
 
-	// 
-	availableCollection.on('change', function(book){
-		new availableView({model:book})
-	})
-
-
-	unavailableCollection.on('add', function(book){
-		new unavailableView({model:book})
-	})
-
 
 
 	var availableView = Parse.View.extend({
@@ -62,7 +52,7 @@
 		},
 
 		initialize: function() {
-			$("#js-available-tbody").append(this.el)
+			$("#available-view").append(this.el)
 			 this.on('add', this.render, this);
 			console.log('initialized available')
 			this.render()
@@ -74,6 +64,7 @@
 
 		checkout: function() {
 			console.log(' checking out ' + this.model.get('title'))
+			console.log()
 			new checkoutView({model: this.model})
 		}
 
@@ -89,8 +80,8 @@
   		template: _.template($('#unavailable').text()),
 
 		initialize: function() {
-			console.log("abc", $("#js-unavailable-tbody"))
-			$("#js-unavailable-tbody").append(this.el)
+			$("#unavailable-view").append(this.el)
+			this.on('add', this.render, this);
 			console.log('initialized unavailable')
 			this.render()
 		},
@@ -100,11 +91,8 @@
   		},
 
   		checkIn: function() {
-  			this.model.save({available: true, user: "none"})
-  			availableCollection.add(this.model)
-  			unavailableCollection.remove(this.model)
-  			rerenderCollection(availableCollection, availableView, $('#js-available-tbody'))
-
+  			this.model.save({available: true})
+  			this.model.save({user: 'none'})
   			$('.toggle').click()
   		}
 	})
@@ -118,7 +106,7 @@
 		template: _.template($('#checkout-modal').text()),
 
 		initialize: function () {
-			$('.modal').html('')
+			$('.modal').removeClass('active')
 			$('.modal').append(this.el)
 			console.log('cool you\'re checkin\' '+  this.model.get('title') +" out")
 			this.render()
@@ -132,22 +120,21 @@
 
 		saveNewUser: function(){
 			console.log(this.model)
-      		this.model.save({user: $('.user-input').val(), available: false});
-      		unavailableCollection.add(this.model)
-  			availableCollection.remove(this.model)
-  			rerenderCollection(unavailableCollection, unavailableView, $('#js-unavailable-tbody'))
-
+      		this.model.save({user: $('.user-input').val()});
+      		this.model.save({available: false})
       		$('.modal').remove()
       		$('.toggle').click()
 		}
 	})
 
-	unavailableCollection.fetch({
+		unavailableCollection.fetch({
 	  success: function(collection) {
 	  	console.log('successful fetch')
 	  	console.log(collection)
-	    rerenderCollection(collection, unavailableView, $('#js-unavailable-tbody'))
-
+	    collection.each(function(result) {
+		  	console.log('result',result)
+	      	new unavailableView({model: result})
+	    })
 	  }
 	})
 
@@ -155,16 +142,11 @@
 	  success: function(collection) {
 	  	console.log('successful fetch')
 	    console.log(collection)
-	    rerenderCollection(collection, availableView, $('#js-available-tbody'))
-	  }
-	})
-
-	var rerenderCollection = function(collection, viewContructor, tbody){
-		tbody.html('')
 	    collection.each(function(result) {
 		  	console.log('result',result)
-	      	new viewContructor({model: result})
+	      	new availableView({model: result})
 	    })
-	}
+	  }
+	})
 
 	
