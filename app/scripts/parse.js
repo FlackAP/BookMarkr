@@ -91,7 +91,6 @@
   		checkIn: function() {
   			this.model.save({available: true})
   			this.model.save({user: 'none'})
-  			$('.toggle').click()
   		}
 	})
 
@@ -104,7 +103,6 @@
 		template: _.template($('#checkout-modal').text()),
 
 		initialize: function () {
-			$('.modal').html('')
 			$('.modal').append(this.el)
 			console.log('cool you\'re checkin\' '+  this.model.get('title') +" out")
 			this.render()
@@ -120,8 +118,8 @@
 			console.log(this.model)
       		this.model.save({user: $('.user-input').val()});
       		this.model.save({available: false})
-      		$('.modal').remove()
-      		$('.toggle').click()
+      		this.remove()
+      		$('.modal').removeClass('active')
 		}
 	})
 

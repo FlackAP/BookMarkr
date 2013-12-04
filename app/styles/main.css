@@ -55,6 +55,9 @@ table {
     overflow:hidden; 
 }
 
+th {
+    background-color: #ddd
+}
 
 th, td {
     min-width:60px;
