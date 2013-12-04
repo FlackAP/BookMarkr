@@ -1,20 +1,3 @@
-
-$('.check-out').click(function(){
-	console.log('great job')
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
 // SHUFFLE FUNCTIONALITY
 
 /**
@@ -592,19 +575,4 @@ jQuery.fn.reverse = [].reverse;
 	};
 	
 } )( jQuery, window );
-
-$(function() {
-
-	var $el = $( '#baraja-el' ),
-		baraja = $el.baraja();
-
-	$( '.toggle' ).on( 'click', function( event ) {
-
-					baraja.next();
-				
-	} );
-
-
-});
-
 		
