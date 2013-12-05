@@ -25,6 +25,7 @@ var BookView = Parse.View.extend({
 
   checkIn: function() {
     this.model.checkIn();
+    this.remove()
   },
 
   checkout: function() {
@@ -41,5 +42,6 @@ var BookView = Parse.View.extend({
     });
 
     $('.modal').removeClass('active')
+    this.remove()
   }
 })
